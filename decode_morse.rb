@@ -1,43 +1,43 @@
-Morse_Code = {
-  '.-'   => 'A',
+MORSE_CODE = {
+  '.-' => 'A',
   '-...' => 'B',
   '-.-.' => 'C',
-  '-..'  => 'D',
-  '.'    => 'E',
+  '-..' => 'D',
+  '.' => 'E',
   '..-.' => 'F',
-  '--.'  => 'G',
+  '--.' => 'G',
   '....' => 'H',
-  '..'   => 'I',
+  '..' => 'I',
   '.---' => 'J',
-  '-.-'  => 'K',
+  '-.-' => 'K',
   '.-..' => 'L',
-  '--'   => 'M',
-  '-.'   => 'N',
-  '---'  => 'O',
+  '--' => 'M',
+  '-.' => 'N',
+  '---' => 'O',
   '.--.' => 'P',
   '--.-' => 'Q',
-  '.-.'  => 'R',
-  '...'  => 'S',
-  '-'    => 'T',
-  '..-'  => 'U',
+  '.-.' => 'R',
+  '...' => 'S',
+  '-' => 'T',
+  '..-' => 'U',
   '...-' => 'V',
-  '.--'  => 'W',
+  '.--' => 'W',
   '-..-' => 'X',
   '-.--' => 'Y',
   '--..' => 'Z'
-}
+}.freeze
 
 def decode_char(char)
-  return Morse_Code[char]
+  MORSE_CODE[char]
 end
 
 def decode_word(word)
-  result =[]
+  result = []
   alphabets = word.split
   alphabets.map do |alphabet|
     result.push(decode_char(alphabet))
-end
-  return result.join()
+  end
+  result.join
 end
 
 def decode(message)
@@ -47,7 +47,7 @@ def decode(message)
   end
   decoded_message.join(' ')
 end
-puts decode_char("--..")
-puts decode_word("-- -.--")
-puts decode("-- -.--   -. .- -- .")
-puts decode(".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
+puts decode_char('--..')
+puts decode_word('-- -.--')
+puts decode('-- -.--   -. .- -- .')
+puts decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
